@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.util.Patterns
 import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
@@ -15,8 +14,8 @@ import androidx.core.widget.addTextChangedListener
 import com.jantune.heartdisease.R
 
 
-class CustomEditTextEmail : AppCompatEditText {
-    private lateinit var showEmailImg: Drawable
+class CustomEditTextName : AppCompatEditText {
+    private lateinit var showNameImg: Drawable
     private lateinit var trueBackground: Drawable
     private lateinit var falseBackground: Drawable
 
@@ -44,12 +43,12 @@ class CustomEditTextEmail : AppCompatEditText {
 
     @SuppressLint("ResourceAsColor")
     private fun init() {
-        showEmailImg =
+        showNameImg =
             ContextCompat.getDrawable(
-                context, R.drawable.baseline_email_24
+                context, R.drawable.user_solid
             ) as Drawable
         val color = Color.parseColor("#9E9E9E")
-        showEmailImg.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+        showNameImg.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
         trueBackground =
             ContextCompat.getDrawable(
@@ -68,23 +67,18 @@ class CustomEditTextEmail : AppCompatEditText {
         setButtonDrawables()
 
         addTextChangedListener(onTextChanged = { s, _, _, _ ->
-            if (isTextEmailAddress(s.toString())) {
+            if (s.toString().length >= 4) {
                 background = trueBackground
                 error = null
             } else {
                 background = falseBackground
-                error = context.getString(R.string.error_email)
+                error = context.getString(R.string.error_name)
             }
         })
     }
 
-    private fun isTextEmailAddress(txtEmail: String): Boolean {
-        return Patterns.EMAIL_ADDRESS.matcher(txtEmail).matches()
-    }
-
-    //Konfigurasi icon/img in button
     private fun setButtonDrawables(
-        startOfTheText: Drawable = showEmailImg,
+        startOfTheText: Drawable = showNameImg,
         topOfTheText: Drawable? = null,
         endOfTheText: Drawable? = null,
         bottomOfTheText: Drawable? = null

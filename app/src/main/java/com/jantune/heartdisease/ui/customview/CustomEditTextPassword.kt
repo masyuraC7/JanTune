@@ -3,6 +3,7 @@ package com.jantune.heartdisease.ui.customview
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.text.method.PasswordTransformationMethod
@@ -20,7 +21,7 @@ class CustomEditTextPassword : AppCompatEditText, View.OnTouchListener {
     private lateinit var showLockImg: Drawable
     private lateinit var trueBackground: Drawable
     private lateinit var falseBackground: Drawable
-    var isVisibleOnTrue = false
+    private var isVisibleOnTrue = false
 
     constructor(context: Context) : super(context) {
         init()
@@ -51,19 +52,20 @@ class CustomEditTextPassword : AppCompatEditText, View.OnTouchListener {
             ContextCompat.getDrawable(
                 context, R.drawable.baseline_visibility_24
             ) as Drawable
-        showVisibleOnImg.setColorFilter(R.color.onBgInput, PorterDuff.Mode.MULTIPLY)
+        val color = Color.parseColor("#9E9E9E")
+        showVisibleOnImg.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
         showVisibleOffImg =
             ContextCompat.getDrawable(
                 context, R.drawable.baseline_visibility_off_24
             ) as Drawable
-        showVisibleOffImg.setColorFilter(R.color.onBgInput, PorterDuff.Mode.MULTIPLY)
+        showVisibleOffImg.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
         showLockImg =
             ContextCompat.getDrawable(
                 context, R.drawable.baseline_lock_24
             ) as Drawable
-        showLockImg.setColorFilter(R.color.onBgInput, PorterDuff.Mode.MULTIPLY)
+        showLockImg.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
         trueBackground =
             ContextCompat.getDrawable(

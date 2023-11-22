@@ -1,60 +1,80 @@
 package com.jantune.heartdisease.ui.auth.login
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.jantune.heartdisease.R
+import com.jantune.heartdisease.databinding.FragmentLoginBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    ): View {
+        binding = FragmentLoginBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setSpannableToRegister()
+
+        with(binding) {
+            btnLogin.setOnClickListener { v ->
+                if ((edtEmailLogin.error != null) || (edtPassLogin.error != null)) {
+                    showSnackbar(getString(R.string.error_login_correct))
+                }else if (edtEmailLogin.text.isNullOrEmpty() || edtPassLogin.text.isNullOrEmpty()){
+                    showSnackbar(getString(R.string.error_login_empty))
+                }else{}
             }
+        }
+    }
+
+    private fun showSnackbar(text: String){
+        Snackbar.make(
+            binding.root,
+            text,
+            Snackbar.LENGTH_LONG
+        ).setAction("Close") {
+        }.show()
+    }
+
+    private fun setSpannableToRegister() {
+        val firstString = getString(R.string.txt_create_account)
+        val extraString = getString(R.string.create_your_account)
+        val ss = SpannableString(getString(R.string.txt_create_account, extraString))
+
+        val clickableSpan: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(view: View) {
+                view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                ds.color = resources.getColor(R.color.seed)
+                ds.isUnderlineText = false
+            }
+        }
+        val startLinks = firstString.length - 4
+        val endLinks = startLinks + extraString.length
+        ss.setSpan(clickableSpan, startLinks, endLinks, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        binding.tvToRegister.text = ss
+        binding.tvToRegister.movementMethod = LinkMovementMethod.getInstance()
+        binding.tvToRegister.highlightColor = Color.TRANSPARENT
     }
 }

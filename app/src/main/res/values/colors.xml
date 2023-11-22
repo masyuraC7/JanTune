@@ -2,8 +2,6 @@
 <resources>
     <color name="seed">#42A6EE</color>
     <color name="onSeed">#FFFFFFFF</color>
-    <color name="bgInput">#1A013088</color>
-    <color name="onBgInput">#9E9E9E</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
