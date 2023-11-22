@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">JanTune</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_login">Login to Your Account.</string>
+    <string name="email">Email</string>
+    <string name="error_email">The input must be a valid email</string>
+    <string name="fake_email">johnsonedoe@gmail.com</string>
+    <string name="password">Password</string>
+    <string name="fake_password_show">johnsondoe123</string>
+    <string name="fake_password_hide">***********************</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">Login</string>
+    <string name="txt_create_account">Don\'t have account? Create your account!</string>
+    <string name="detail_app_name">JanTune - Early Detection Heart Disease App</string>
+    <string name="error_password">Password must be up to 8 characters</string>
+</resources>
