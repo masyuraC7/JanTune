@@ -1,5 +1,6 @@
-package com.jantune.heartdisease.ui.auth.login
+package com.jantune.heartdisease.ui.view.auth.login
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.text.SpannableString
@@ -13,6 +14,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
+import com.jantune.heartdisease.ui.view.MainActivity
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.FragmentLoginBinding
 
@@ -34,17 +36,20 @@ class LoginFragment : Fragment() {
         setSpannableToRegister()
 
         with(binding) {
-            btnLogin.setOnClickListener { v ->
+            btnLogin.setOnClickListener {
                 if ((edtEmailLogin.error != null) || (edtPassLogin.error != null)) {
                     showSnackbar(getString(R.string.error_login_correct))
-                }else if (edtEmailLogin.text.isNullOrEmpty() || edtPassLogin.text.isNullOrEmpty()){
+                } else if (edtEmailLogin.text.isNullOrEmpty() || edtPassLogin.text.isNullOrEmpty()) {
                     showSnackbar(getString(R.string.error_login_empty))
-                }else{}
+                } else {
+                    val intentToMainActivity = Intent(requireActivity(), MainActivity::class.java)
+                    startActivity(intentToMainActivity)
+                }
             }
         }
     }
 
-    private fun showSnackbar(text: String){
+    private fun showSnackbar(text: String) {
         Snackbar.make(
             binding.root,
             text,

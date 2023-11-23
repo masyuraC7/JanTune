@@ -23,4 +23,14 @@
     <string name="error_name">Name must be up to 4 characters</string>
     <string name="error_login_correct">Please fill the form correctly</string>
     <string name="error_login_empty">The form is empty!! Please fill out the form</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="content_home">Suarakan Kesehatan Jantungmu dengan Early Detection Heart Disease App</string>
+    <string name="tes_kardino">Yuk Tes Kardinovaskuler</string>
+    <string name="cek_sekarang">Cek Sekarang</string>
+    <string name="gejala_content">Gejala Penyakit Jantung</string>
+    <string name="gejala">Gejala - Gejala</string>
+    <string name="video_edukasi">Video Edukasi</string>
+    <string name="lokasi_rs">Lokasi Rumah Sakit</string>
+    <string name="identification">Identification</string>
 </resources>

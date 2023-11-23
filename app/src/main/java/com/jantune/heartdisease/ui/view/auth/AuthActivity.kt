@@ -1,4 +1,4 @@
-package com.jantune.heartdisease.ui.auth
+package com.jantune.heartdisease.ui.view.auth
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

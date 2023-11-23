@@ -1,4 +1,4 @@
-package com.jantune.heartdisease.ui.auth.register
+package com.jantune.heartdisease.ui.view.auth.register
 
 import android.graphics.Color
 import android.os.Bundle

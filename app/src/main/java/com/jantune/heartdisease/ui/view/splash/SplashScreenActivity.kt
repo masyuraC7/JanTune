@@ -1,12 +1,13 @@
-package com.jantune.heartdisease.ui.splash
+package com.jantune.heartdisease.ui.view.splash
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jantune.heartdisease.MainActivity
 import com.jantune.heartdisease.R
-import com.jantune.heartdisease.ui.auth.AuthActivity
+import com.jantune.heartdisease.ui.view.auth.AuthActivity
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
