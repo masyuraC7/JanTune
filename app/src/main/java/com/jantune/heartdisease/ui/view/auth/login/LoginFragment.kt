@@ -38,14 +38,14 @@ class LoginFragment : Fragment() {
 
         with(binding) {
             btnLogin.setOnClickListener {
-                if ((edtEmailLogin.error != null) || (edtPassLogin.error != null)) {
-                    showSnackbar(getString(R.string.error_login_correct))
-                } else if (edtEmailLogin.text.isNullOrEmpty() || edtPassLogin.text.isNullOrEmpty()) {
-                    showSnackbar(getString(R.string.error_login_empty))
-                } else {
+//                if ((edtEmailLogin.error != null) || (edtPassLogin.error != null)) {
+//                    showSnackbar(getString(R.string.error_login_correct))
+//                } else if (edtEmailLogin.text.isNullOrEmpty() || edtPassLogin.text.isNullOrEmpty()) {
+//                    showSnackbar(getString(R.string.error_login_empty))
+//                } else {
                     val intentToMainActivity = Intent(requireActivity(), MainActivity::class.java)
                     startActivity(intentToMainActivity)
-                }
+//                }
             }
         }
     }

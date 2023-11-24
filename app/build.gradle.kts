@@ -60,6 +60,9 @@ dependencies {
     implementation("com.google.dagger:hilt-android:$hilt")
     ksp("com.google.dagger:hilt-compiler:$hilt")
 
+    // glide img
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
     // retrofit
     val retrofit = "2.9.0"
     implementation("com.squareup.retrofit2:retrofit:$retrofit")
