@@ -66,6 +66,11 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:$retrofit")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
+    // view model
+    val lifecycle = "2.6.2"
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle")
+
     // navigation
     val navigation = "2.5.3"
     //noinspection GradleDependency

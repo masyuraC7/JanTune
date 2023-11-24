@@ -33,4 +33,8 @@
     <string name="video_edukasi">Video Edukasi</string>
     <string name="lokasi_rs">Lokasi Rumah Sakit</string>
     <string name="identification">Identification</string>
+    <string name="new_identification">New Identification</string>
+    <string name="negative_result">Negative Kardinovaskuler</string>
+    <string name="history_date">16/11/2023 10:11 AM</string>
+    <string name="delete_identification">Delete Identification</string>
 </resources>
