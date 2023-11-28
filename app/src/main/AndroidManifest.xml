@@ -14,6 +14,9 @@
         android:theme="@style/Theme.JanTune"
         tools:targetApi="31">
         <activity
+            android:name=".ui.view.main.profile.EditProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.view.splash.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
@@ -24,7 +27,7 @@
         </activity>
         <activity
             android:name=".ui.view.auth.AuthActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.view.MainActivity"
             android:exported="false" />

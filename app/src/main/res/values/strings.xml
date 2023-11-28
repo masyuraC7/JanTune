@@ -50,4 +50,10 @@
     <string name="gmail_action">Gmail Action</string>
     <string name="instagram_action">Instagram Action</string>
     <string name="twitter_action">Twitter Action</string>
+    <string name="gallery_action">Gallery Action</string>
+    <string name="error_phone">Please input a valid number phone</string>
+    <string name="batal">Batal</string>
+    <string name="logout_confirmation">Apakah Anda Yakin Ingin Keluar?</string>
+    <string name="tidak">Tidak</string>
+    <string name="iya">Ya</string>
 </resources>
