@@ -42,14 +42,14 @@
 
                 <TextView
                     android:id="@+id/toolbar_title"
+                   android:fontFamily="@font/roboto_bold"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_toEndOf="@+id/icon_toolbar"
                     android:gravity="center"
                     android:text="@string/identification"
                     android:textColor="@android:color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="20sp" />
 
             </RelativeLayout>
 

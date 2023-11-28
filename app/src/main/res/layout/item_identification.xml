@@ -12,9 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/fake_name"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,9 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="@string/negative_result"
+        android:fontFamily="@font/roboto_regular"
         android:textColor="@color/seed"
         android:textSize="15sp"
-        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/history_name"
         app:layout_constraintTop_toBottomOf="@+id/history_name" />
 
@@ -37,7 +37,8 @@
         android:layout_marginTop="4dp"
         android:paddingBottom="16dp"
         android:text="@string/history_date"
-        android:textColor="@color/design_default_color_on_secondary"
+        android:fontFamily="@font/roboto_bolditalic"
+        android:textColor="@color/gray"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/history_identification"
         app:layout_constraintTop_toBottomOf="@+id/history_identification" />

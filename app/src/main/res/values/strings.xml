@@ -6,6 +6,7 @@
     <string name="error_email">The input must be a valid email</string>
     <string name="fake_email">johnsonedoe@gmail.com</string>
     <string name="password">Password</string>
+    <string name="edit">Edit</string>
     <string name="fake_password_show">johnsondoe123</string>
     <string name="fake_password_hide">***********************</string>
     <string name="forgot_password">Forgot Password?</string>
@@ -37,4 +38,7 @@
     <string name="negative_result">Negative Kardinovaskuler</string>
     <string name="history_date">16/11/2023 10:11 AM</string>
     <string name="delete_identification">Delete Identification</string>
+    <string name="kontak_kami">Kontak Kami</string>
+    <string name="txt_saran">Punya kritik, saran, ide fitur, atau apapun itu yang kamu ingin sampaikan kepada kami</string>
+    <string name="txt_follow">Atau follow akun sosial media kami</string>
 </resources>
