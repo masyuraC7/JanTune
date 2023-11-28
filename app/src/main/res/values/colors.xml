@@ -8,4 +8,6 @@
     <color name="inputText">#9E9E9E</color>
     <color name="secondaryButton">#535461</color>
     <color name="borderShape">#353146</color>
+    <color name="positif_identification">#D84864</color>
+    <color name="negative_identification">#42A6EE</color>
 </resources>

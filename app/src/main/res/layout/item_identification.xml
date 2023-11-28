@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_item_gejala"
-    android:layout_marginBottom="16dp">
+    android:layout_marginTop="16dp">
 
     <TextView
         android:id="@+id/history_name"
@@ -23,9 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="@string/negative_result"
+        android:text="@string/negatif_result"
         android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/seed"
+        android:textColor="@color/negative_identification"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/history_name"
         app:layout_constraintTop_toBottomOf="@+id/history_name" />
