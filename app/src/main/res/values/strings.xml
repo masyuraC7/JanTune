@@ -57,4 +57,5 @@
     <string name="logout_confirmation">Apakah Anda Yakin Ingin Keluar?</string>
     <string name="tidak">Tidak</string>
     <string name="iya">Ya</string>
+    <string name="splash_image">Splash Image</string>
 </resources>
