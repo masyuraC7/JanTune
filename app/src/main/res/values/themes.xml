@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.JanTune" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/seed</item>
-         <item name="colorOnPrimary">@color/onSeed</item>
+        <item name="colorPrimary">@color/seed</item>
+        <item name="colorOnPrimary">@color/onSeed</item>
     </style>
 
     <style name="CustomCardViewStyle" parent="@style/Widget.MaterialComponents.CardView">
@@ -16,6 +16,38 @@
         <item name="cornerSizeTopLeft">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
         <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="RoundedCardTopStartEndStyle" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeRoundedTopStartEnd</item>
+    </style>
+
+    <style name="ShapeRoundedTopStartEnd" parent="RoundedCardTopStartEndStyle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">40dp</item>
+        <item name="cornerSizeTopLeft">40dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="TextViewFieldStyle" parent="@style/Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@drawable/custom_input</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/inputText</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeRoundedTopStartEnd</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/borderShape</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
     </style>
 
     <style name="Theme.JanTune" parent="Base.Theme.JanTune" />
