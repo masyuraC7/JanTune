@@ -17,7 +17,7 @@ import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.FragmentLoginBinding
-import com.jantune.heartdisease.ui.view.MainActivity
+import com.jantune.heartdisease.ui.view.main.MainActivity
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding

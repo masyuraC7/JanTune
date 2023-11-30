@@ -10,8 +10,10 @@ import com.jantune.heartdisease.R
 import com.jantune.heartdisease.data.model.IdentificationHistory
 import com.jantune.heartdisease.databinding.ItemIdentificationBinding
 
-class IdentificationAdapter :
-    ListAdapter<IdentificationHistory, IdentificationAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class IdentificationAdapter(
+    private val onItemClick: (IdentificationHistory) -> Unit,
+    private val onIvDelete: (name: String) -> Unit
+) : ListAdapter<IdentificationHistory, IdentificationAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemIdentificationBinding.inflate(
@@ -23,18 +25,23 @@ class IdentificationAdapter :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val identification = getItem(position)
-        holder.bind(identification)
+        holder.bind(identification, onIvDelete)
+        holder.itemView.setOnClickListener {
+            onItemClick(identification)
+        }
     }
 
     class MyViewHolder(private val binding: ItemIdentificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(identificationItem: IdentificationHistory) {
+        fun bind(
+            identificationItem: IdentificationHistory,
+            onIvDelete: (name: String) -> Unit
+        ) {
             val context = binding.root.context
 
             binding.historyName.text = identificationItem.name
             binding.historyIdentification.text = identificationItem.identification
             binding.historyDate.text = identificationItem.dateTime
-
 
             if (identificationItem.identification == context.getString(R.string.negatif_result)) {
                 binding.historyIdentification.setTextColor(
@@ -50,6 +57,10 @@ class IdentificationAdapter :
                         R.color.positif_identification
                     )
                 )
+            }
+
+            binding.ivDelete.setOnClickListener {
+                onIvDelete(identificationItem.name)
             }
         }
     }

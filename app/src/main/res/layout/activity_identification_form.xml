@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.main.identification.form.IdentificationFormActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarIdentificationForm"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/rectangle_shape"
+        android:fitsSystemWindows="true"
+        android:minHeight="60dp"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_insetEdge="top">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/formToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:navigationIcon="@drawable/ic_back"
+            app:title="@string/identification_form"
+            app:titleCentered="true"
+            app:titleTextColor="@color/onSeed" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/tv_form_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/name"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarIdentificationForm" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edt_form_nama"
+        style="@style/CustomInputEditTextForm"
+        android:layout_width="0dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/fake_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_form_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_form_name" />
+
+    <TextView
+        android:id="@+id/tv_form_gula"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/gula_darah_saat_puasa"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_form_nama" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/edt_form_gula"
+        style="@style/CustomInputEditTextForm"
+        android:layout_width="0dp"
+        android:hint="@string/fake_gula_darah"
+        app:layout_constraintEnd_toEndOf="@+id/edt_form_nama"
+        app:layout_constraintStart_toStartOf="@+id/tv_form_gula"
+        app:layout_constraintTop_toBottomOf="@+id/tv_form_gula" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_form_identification"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/submit"
+        app:layout_constraintStart_toStartOf="@+id/edt_form_gula"
+        app:layout_constraintTop_toBottomOf="@+id/edt_form_gula" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,7 +71,7 @@
         tools:listitem="@layout/item_identification" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_identification"
+        android:id="@+id/fab_add_identification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"

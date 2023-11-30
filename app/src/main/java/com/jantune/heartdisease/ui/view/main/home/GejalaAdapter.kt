@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.jantune.heartdisease.data.model.Gejala
 import com.jantune.heartdisease.databinding.ItemGejalaBinding
 
-class GejalaAdapter() : ListAdapter<Gejala, GejalaAdapter.MyViewHolder>(DIFF_CALLBACK) {
+class GejalaAdapter : ListAdapter<Gejala, GejalaAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemGejalaBinding.inflate(

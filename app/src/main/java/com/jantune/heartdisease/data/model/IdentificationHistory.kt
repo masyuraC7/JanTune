@@ -3,57 +3,58 @@ package com.jantune.heartdisease.data.model
 data class IdentificationHistory(
     val name: String,
     val identification: String,
-    val dateTime: String
+    val dateTime: String,
+    val isActive: Boolean = true
 )
 
-val dummyIdentificationHistory = listOf(
+val dummyIdentificationHistory = mutableListOf(
     IdentificationHistory(
         "Leonardo",
         "Negatif Kardiovaskuler",
         "16 /11/ 2023   10:11 AM"
     ),
     IdentificationHistory(
-        "Adam",
+        "Adam1",
+        "Negatif Kardiovaskuler",
+        "16 /11/ 2023   10:11 AM"
+    ),
+    IdentificationHistory(
+        "Adam2",
         "Positif Kardiovaskuler",
         "16 /11/ 2023   10:11 AM"
     ),
     IdentificationHistory(
-        "Adam",
+        "Adam3",
+        "Negatif Kardiovaskuler",
+        "16 /11/ 2023   10:11 AM"
+    ),
+    IdentificationHistory(
+        "Adam4",
         "Positif Kardiovaskuler",
         "16 /11/ 2023   10:11 AM"
     ),
     IdentificationHistory(
-        "Adam",
+        "Adam5",
         "Positif Kardiovaskuler",
         "16 /11/ 2023   10:11 AM"
     ),
     IdentificationHistory(
-        "Adam",
+        "Adam6",
+        "Negatif Kardiovaskuler",
+        "16 /11/ 2023   10:11 AM"
+    ),
+    IdentificationHistory(
+        "Adam7",
         "Positif Kardiovaskuler",
         "16 /11/ 2023   10:11 AM"
     ),
     IdentificationHistory(
-        "Adam",
-        "Positif Kardiovaskuler",
+        "Adam8",
+        "Negatif Kardiovaskuler",
         "16 /11/ 2023   10:11 AM"
     ),
     IdentificationHistory(
-        "Adam",
-        "Positif Kardiovaskuler",
-        "16 /11/ 2023   10:11 AM"
-    ),
-    IdentificationHistory(
-        "Adam",
-        "Positif Kardiovaskuler",
-        "16 /11/ 2023   10:11 AM"
-    ),
-    IdentificationHistory(
-        "Adam",
-        "Positif Kardiovaskuler",
-        "16 /11/ 2023   10:11 AM"
-    ),
-    IdentificationHistory(
-        "Adam",
+        "Adam9",
         "Positif Kardiovaskuler",
         "16 /11/ 2023   10:11 AM"
     )

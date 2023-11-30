@@ -1,4 +1,4 @@
-package com.jantune.heartdisease.ui.view
+package com.jantune.heartdisease.ui.view.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">JanTune</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_login">Login to Your Account.</string>
     <string name="email">Email</string>
     <string name="error_email">The input must be a valid email</string>
@@ -58,4 +57,12 @@
     <string name="tidak">Tidak</string>
     <string name="iya">Ya</string>
     <string name="splash_image">Splash Image</string>
+    <string name="identification_form">Identification Form</string>
+    <string name="gula_darah_saat_puasa">Gulah Darah Saat Berpuasa</string>
+    <string name="fake_gula_darah">0/1</string>
+    <string name="submit">Submit</string>
+    <string name="txt_detail">Detail : </string>
+    <string name="txt_name">Name : </string>
+    <string name="txt_tanggal">"Tanggal : "</string>
+    <string name="saran_penanganan">Saran Penanganan</string>
 </resources>
