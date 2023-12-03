@@ -80,4 +80,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$navigation")
     //noinspection GradleDependency
     implementation("androidx.navigation:navigation-ui-ktx:$navigation")
+
+    //pierfrancescosoffritti android-youtube-player
+    implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
 }
