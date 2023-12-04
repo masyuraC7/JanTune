@@ -1,5 +1,6 @@
 package com.jantune.heartdisease.ui.view.main.identification.detail
 
+
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.ActivityIdentificationDetailBinding
 import com.jantune.heartdisease.ui.view.main.MapsActivity
+
 
 class IdentificationDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIdentificationDetailBinding

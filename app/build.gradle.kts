@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.jantune.heartdisease"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.jantune.heartdisease"
@@ -44,6 +44,7 @@ android {
         jvmTarget = "1.8"
     }
     buildToolsVersion = "33.0.1"
+    ndkVersion = ndkVersion
 }
 
 dependencies {
@@ -55,6 +56,9 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("androidx.camera:camera-lifecycle:1.3.0")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.google.android.gms:play-services-location:21.0.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -87,4 +91,13 @@ dependencies {
 
     //pierfrancescosoffritti android-youtube-player
     implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
+
+    //CameraX
+    val cameraxVersion = "1.3.0"
+    implementation("androidx.camera:camera-camera2:$cameraxVersion")
+    implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
+    implementation("androidx.camera:camera-view:$cameraxVersion")
+
+
+
 }
