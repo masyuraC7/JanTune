@@ -1,11 +1,13 @@
 package com.jantune.heartdisease.ui.view.main.identification.detail
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.ActivityIdentificationDetailBinding
+import com.jantune.heartdisease.ui.view.main.MapsActivity
 
 class IdentificationDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityIdentificationDetailBinding
@@ -19,7 +21,9 @@ class IdentificationDetailActivity : AppCompatActivity() {
         binding.detailToolbar.setNavigationOnClickListener {
             finish()
         }
-
+        binding.iconEndBtnLokasi.setOnClickListener {
+            startActivity(Intent(this@IdentificationDetailActivity, MapsActivity::class.java))
+        }
         val identification = intent.getStringExtra(EXTRA_IDENTIFICATION)
 
         if (identification == getString(R.string.negatif_result)) {
@@ -31,6 +35,7 @@ class IdentificationDetailActivity : AppCompatActivity() {
             binding.btnResultIdentification.text =
                 getString(R.string.negatif_result)
             binding.btnResultIdentification.setTextColor(R.color.negative_identification)
+
         }
     }
 

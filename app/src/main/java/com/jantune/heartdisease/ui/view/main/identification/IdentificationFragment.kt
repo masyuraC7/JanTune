@@ -32,6 +32,8 @@ class IdentificationFragment : Fragment() {
             LinearLayoutManager.VERTICAL,
             false
         )
+
+
         val listAdapter = IdentificationAdapter(
             onItemClick = { item ->
                 val intentToIdentificationActivity =

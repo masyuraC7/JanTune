@@ -1,12 +1,13 @@
 package com.jantune.heartdisease.ui.view.main.profile
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.jantune.heartdisease.databinding.ActivityEditProfileBinding
 
 class EditProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditProfileBinding
-
+    private var currentImageUri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
@@ -19,5 +20,14 @@ class EditProfileActivity : AppCompatActivity() {
         binding.btnCancelEditProfile.setOnClickListener {
             finish()
         }
+
+        binding.actionToCamera.setOnClickListener {
+
+        }
+
+        binding.actionToGallery.setOnClickListener {
+
+        }
     }
+
 }

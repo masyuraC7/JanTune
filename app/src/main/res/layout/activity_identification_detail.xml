@@ -171,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/saran_penanganan"
-                        android:src="@drawable/ic_penanganan"
+                        android:src="@drawable/ic_saran"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -194,6 +194,60 @@
 
                     <ImageView
                         android:id="@+id/icon_end_btn_saran"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:contentDescription="@string/saran_penanganan"
+                        android:src="@drawable/baseline_chevron_right_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/onSeed" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_btn_saran_lokasi"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_shape"
+                app:layout_constraintEnd_toEndOf="@+id/fl_view_body_detail"
+                app:layout_constraintStart_toStartOf="@+id/fl_view_body_detail"
+                app:layout_constraintTop_toBottomOf="@+id/fl_btn_saran_penanganan">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:id="@+id/icon_start_btn_lokasi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/saran_penanganan"
+                        android:src="@drawable/ic_lokasi"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_btn_lokasi"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/lokasi"
+                        android:textAllCaps="true"
+                        android:textColor="@color/onSeed"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/icon_end_btn_lokasi"
+                        app:layout_constraintStart_toEndOf="@+id/icon_start_btn_lokasi"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/icon_end_btn_lokasi"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:contentDescription="@string/saran_penanganan"

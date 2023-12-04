@@ -65,4 +65,11 @@
     <string name="txt_name">Name : </string>
     <string name="txt_tanggal">"Tanggal : "</string>
     <string name="saran_penanganan">Saran Penanganan</string>
+    <string name="lokasi">LOKASI RS TERDEKAT</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+    <string name="edit_profil">Edit Profile</string>
 </resources>
