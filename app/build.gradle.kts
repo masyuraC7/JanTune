@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "com.jantune.heartdisease"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.jantune.heartdisease"
@@ -44,7 +44,6 @@ android {
         jvmTarget = "1.8"
     }
     buildToolsVersion = "33.0.1"
-    ndkVersion = ndkVersion
 }
 
 dependencies {
@@ -91,13 +90,4 @@ dependencies {
 
     //pierfrancescosoffritti android-youtube-player
     implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
-
-    //CameraX
-    val cameraxVersion = "1.3.0"
-    implementation("androidx.camera:camera-camera2:$cameraxVersion")
-    implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
-    implementation("androidx.camera:camera-view:$cameraxVersion")
-
-
-
 }
