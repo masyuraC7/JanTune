@@ -20,4 +20,11 @@
         android:layout_below="@id/appBar"
         tools:context=".ui.view.main.MapsActivity" />
 
+    <Button
+        android:id="@+id/button_search_RS"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/cari_lokasi_rs" />
 </RelativeLayout>

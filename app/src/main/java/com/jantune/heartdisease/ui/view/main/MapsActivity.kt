@@ -45,12 +45,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         supportActionBar?.title = "Lokasi Pusat Kesehatan"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        val toolbar = binding.appBar
+
+        toolbar.overflowIcon?.setTint(ContextCompat.getColor(this, android.R.color.white))
+        toolbar.setNavigationIcon(R.drawable.ic_back) // Warna putih
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        findNearbyHospitals()
+        binding.buttonSearchRS.setOnClickListener {
+            findNearbyHospitals()
+            getMyLocation()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -113,12 +120,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun getMyLocation() {
         if (ContextCompat.checkSelfPermission(
                 this.applicationContext,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             mMap.isMyLocationEnabled = true
         } else {
-            requestPermissionLauncher.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
+            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
         }
     }
 
@@ -132,15 +139,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+            // Request location permissions if not granted
+            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
             return
         }
+
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location: Location? ->
                 location?.let {
@@ -148,14 +151,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     val currentLat = location.latitude
                     val currentLng = location.longitude
                     val placeType = "hospital"
-                    // API Key sementara
-                    val googleMapKey = "AIzaSyB_qsP8AOP_P0MdlPz-48TDaJYjTP3vbjo"
+                    Log.d("location currentLat", currentLat.toString())
+                    Log.d("location currentLng", currentLng.toString())
+                    val googleMapKey = "AIzaSyDng476qiOpjwOxqQxsOSk2SUki5dZklHU"
 
-                    val url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
-                            "?location=$currentLat,$currentLng" +
-                            "&radius=5000" +
-                            "&type=$placeType" +
-                            "&key=$googleMapKey"
+                    val url =
+                        "https://maps.googleapis.com/maps/api/place/nearbysearch/json" +
+                                "?location=$currentLat,$currentLng" +
+                                "&radius=5000" +
+                                "&type=$placeType" +
+                                "&key=$googleMapKey"
 
                     val requestQueue = Volley.newRequestQueue(this)
                     val jsonObjectRequest = JsonObjectRequest(
@@ -168,6 +173,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         })
 
                     requestQueue.add(jsonObjectRequest)
+                    // Animasi kamera ke lokasi Anda
+                    val myLocation = LatLng(currentLat, currentLng)
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15f))
                 }
             }
             .addOnFailureListener { exception ->
@@ -177,8 +185,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun handleNearbyHospitalsResponse(response: JSONObject) {
-
         Log.d("API_RESPONSE", response.toString())
+        // Clear existing markers on the map
+        mMap.clear()
+
         // Parse the response and add markers to the map
         val results = response.getJSONArray("results")
         for (i in 0 until results.length()) {
@@ -190,7 +200,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
             // Add marker to the map
             val markerOptions = MarkerOptions().position(LatLng(lat, lng)).title(name)
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
             mMap.addMarker(markerOptions)
         }
 
@@ -204,4 +214,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12f))
         }
     }
+
 }

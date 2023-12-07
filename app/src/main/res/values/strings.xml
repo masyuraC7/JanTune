@@ -76,4 +76,5 @@
     <string name="txt_waktu">Waktu : </string>
     <string name="fake_waktu">00:00 AM</string>
     <string name="identification_detail">Identification Detail</string>
+    <string name="cari_lokasi_rs">Edit Profile</string>
 </resources>
