@@ -72,4 +72,8 @@
     <string name="terrain_type">Terrain</string>
     <string name="hybrid_type">Hybrid</string>
     <string name="edit_profil">Edit Profile</string>
+    <string name="fake_date">01/12/2023</string>
+    <string name="txt_waktu">Waktu : </string>
+    <string name="fake_waktu">00:00 AM</string>
+    <string name="identification_detail">Identification Detail</string>
 </resources>

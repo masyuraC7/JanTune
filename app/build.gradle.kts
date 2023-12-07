@@ -15,6 +15,7 @@ android {
     defaultConfig {
         applicationId = "com.jantune.heartdisease"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -55,7 +56,6 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
-    implementation("androidx.camera:camera-lifecycle:1.3.0")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     testImplementation("junit:junit:4.13.2")
@@ -90,4 +90,13 @@ dependencies {
 
     //pierfrancescosoffritti android-youtube-player
     implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.0")
+
+    //CameraX
+    val cameraxVersion = "1.2.0"
+    //noinspection GradleDependency
+    implementation("androidx.camera:camera-camera2:$cameraxVersion")
+    //noinspection GradleDependency
+    implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
+    //noinspection GradleDependency
+    implementation("androidx.camera:camera-view:$cameraxVersion")
 }

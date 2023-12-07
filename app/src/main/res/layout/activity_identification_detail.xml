@@ -27,7 +27,7 @@
             android:paddingEnd="8dp"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:navigationIcon="@drawable/ic_back"
-            app:title="@string/identification_form"
+            app:title="@string/identification_detail"
             app:titleCentered="true"
             app:titleTextColor="@color/onSeed" />
     </com.google.android.material.appbar.AppBarLayout>
@@ -139,15 +139,62 @@
                         app:layout_constraintTop_toBottomOf="@+id/tv_detail_title" />
 
                     <TextView
-                        android:id="@+id/tv_tanggal_detail_iden"
+                        android:id="@+id/tv_edit_name_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_name"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tv_name_detail_iden"
+                        app:layout_constraintTop_toTopOf="@+id/tv_name_detail_iden" />
+
+                    <TextView
+                        android:id="@+id/tv_date_detail_iden"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="16dp"
                         android:text="@string/txt_tanggal"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_name_detail_iden" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_name_detail" />
+
+                    <TextView
+                        android:id="@+id/tv_edit_date_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_date"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tv_date_detail_iden"
+                        app:layout_constraintTop_toTopOf="@+id/tv_date_detail_iden" />
+
+                    <TextView
+                        android:id="@+id/tv_time_detail_iden"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_waktu"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_date_detail" />
+
+                    <TextView
+                        android:id="@+id/tv_time_date_detail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_waktu"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tv_time_detail_iden"
+                        app:layout_constraintTop_toTopOf="@+id/tv_time_detail_iden" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
 
