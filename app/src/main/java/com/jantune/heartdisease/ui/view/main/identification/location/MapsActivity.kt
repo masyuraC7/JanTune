@@ -1,4 +1,4 @@
-package com.jantune.heartdisease.ui.view.main
+package com.jantune.heartdisease.ui.view.main.identification.location
 
 import android.Manifest
 import android.content.Intent

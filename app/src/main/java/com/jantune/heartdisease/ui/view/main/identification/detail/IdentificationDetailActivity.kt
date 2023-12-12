@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.ActivityIdentificationDetailBinding
-import com.jantune.heartdisease.ui.view.main.MapsActivity
+import com.jantune.heartdisease.ui.view.main.identification.location.MapsActivity
+import com.jantune.heartdisease.ui.view.main.identification.saran.SaranPenanganan
+import com.jantune.heartdisease.ui.view.main.identification.saran.SaranPencegahan
 
 
 class IdentificationDetailActivity : AppCompatActivity() {
@@ -37,7 +39,15 @@ class IdentificationDetailActivity : AppCompatActivity() {
             binding.btnResultIdentification.text =
                 getString(R.string.negatif_result)
             binding.btnResultIdentification.setTextColor(R.color.negative_identification)
-
+            binding.tvBtnSaran.text =
+                getString(R.string.saran_pencegahan)
+            binding.iconEndBtnSaran.setOnClickListener {
+                startActivity(Intent(this@IdentificationDetailActivity, SaranPencegahan::class.java))
+            }
+        }else{
+            binding.iconEndBtnSaran.setOnClickListener {
+                startActivity(Intent(this@IdentificationDetailActivity, SaranPenanganan::class.java))
+            }
         }
     }
 

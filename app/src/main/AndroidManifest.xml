@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-feature
-        android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
@@ -14,7 +14,6 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-
 
     <application
         android:name=".data.di.MyApp"
@@ -27,13 +26,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JanTune"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.view.main.identification.saran.SaranPencegahan"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.main.identification.saran.SaranPenanganan"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDng476qiOpjwOxqQxsOSk2SUki5dZklHU" />
 
         <activity
-            android:name=".ui.view.main.MapsActivity"
+            android:name=".ui.view.main.identification.location.MapsActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity

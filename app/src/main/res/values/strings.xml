@@ -65,6 +65,7 @@
     <string name="txt_name">Name : </string>
     <string name="txt_tanggal">"Tanggal :"</string>
     <string name="saran_penanganan">Saran Penanganan</string>
+    <string name="saran_pencegahan">Saran Pencegahan</string>
     <string name="lokasi">LOKASI RS TERDEKAT</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="normal_type">Normal</string>
@@ -76,7 +77,7 @@
     <string name="txt_waktu">Waktu :</string>
     <string name="fake_waktu">00:00 AM</string>
     <string name="identification_detail">Identification Detail</string>
-    <string name="cari_lokasi_rs">Edit Profile</string>
+    <string name="cari_lokasi_rs">Cari Rumah Sakit</string>
     <string name="male_gender">Laki-Laki</string>
     <string name="txt_gender">"Jenis Kelamin :"</string>
     <string name="txt_age">Umur :</string>

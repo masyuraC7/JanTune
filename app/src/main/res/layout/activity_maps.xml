@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.view.main.MapsActivity">
+    tools:context=".ui.view.main.identification.location.MapsActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/appBar"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/appBar"
-        tools:context=".ui.view.main.MapsActivity" />
+        tools:context=".ui.view.main.identification.location.MapsActivity" />
 
     <Button
         android:id="@+id/button_search_RS"
