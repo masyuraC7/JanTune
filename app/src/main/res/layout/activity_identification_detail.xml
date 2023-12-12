@@ -36,6 +36,7 @@
         android:id="@+id/nsv_detail_identification"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp">
 
             <FrameLayout
                 android:id="@+id/view_detail_identification"
@@ -117,7 +119,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/tv_detail_title"
+                        android:id="@+id/text_detail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/txt_detail"
@@ -128,7 +130,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tv_name_detail_iden"
+                        android:id="@+id/text_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -136,10 +138,10 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_title" />
+                        app:layout_constraintTop_toBottomOf="@+id/text_detail" />
 
                     <TextView
-                        android:id="@+id/tv_edit_name_detail"
+                        android:id="@+id/tv_detail_name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -147,11 +149,11 @@
                         android:text="@string/fake_name"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tv_name_detail_iden"
-                        app:layout_constraintTop_toTopOf="@+id/tv_name_detail_iden" />
+                        app:layout_constraintStart_toEndOf="@+id/text_name"
+                        app:layout_constraintTop_toTopOf="@+id/text_name" />
 
                     <TextView
-                        android:id="@+id/tv_date_detail_iden"
+                        android:id="@+id/text_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -159,10 +161,10 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_name_detail" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_name" />
 
                     <TextView
-                        android:id="@+id/tv_edit_date_detail"
+                        android:id="@+id/tv_detail_date"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -170,11 +172,11 @@
                         android:text="@string/fake_date"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tv_date_detail_iden"
-                        app:layout_constraintTop_toTopOf="@+id/tv_date_detail_iden" />
+                        app:layout_constraintStart_toEndOf="@+id/text_date"
+                        app:layout_constraintTop_toTopOf="@+id/text_date" />
 
                     <TextView
-                        android:id="@+id/tv_time_detail_iden"
+                        android:id="@+id/text_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -182,10 +184,10 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_edit_date_detail" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_date" />
 
                     <TextView
-                        android:id="@+id/tv_time_date_detail"
+                        android:id="@+id/tv_detail_time"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -193,8 +195,273 @@
                         android:text="@string/fake_waktu"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/tv_time_detail_iden"
-                        app:layout_constraintTop_toTopOf="@+id/tv_time_detail_iden" />
+                        app:layout_constraintStart_toEndOf="@+id/text_time"
+                        app:layout_constraintTop_toTopOf="@+id/text_time" />
+
+                    <TextView
+                        android:id="@+id/text_gender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_gender"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_time" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_gender"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/male_gender"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_gender"
+                        app:layout_constraintTop_toTopOf="@+id/text_gender" />
+
+                    <TextView
+                        android:id="@+id/text_age"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_age"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_gender" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_age"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_age"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_age"
+                        app:layout_constraintTop_toTopOf="@+id/text_age" />
+
+                    <TextView
+                        android:id="@+id/text_nyeri_dada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_nyeri_dada"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_age" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_nyeri_dada"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_asy"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_nyeri_dada"
+                        app:layout_constraintTop_toTopOf="@+id/text_nyeri_dada" />
+
+                    <TextView
+                        android:id="@+id/text_tekanan_darah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_tekanan_darah"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_nyeri_dada" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_tekanan_darah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_tekanan_darah"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_tekanan_darah"
+                        app:layout_constraintTop_toTopOf="@+id/text_tekanan_darah" />
+
+                    <TextView
+                        android:id="@+id/text_kolesterol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38dp"
+                        android:text="@string/txt_kolesterol"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_tekanan_darah" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_kolesterol"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_waktu"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_kolesterol"
+                        app:layout_constraintTop_toTopOf="@+id/text_kolesterol" />
+
+                    <TextView
+                        android:id="@+id/text_gula_darah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_gula_darah"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_kolesterol" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_gula_darah"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_waktu"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_gula_darah"
+                        app:layout_constraintTop_toTopOf="@+id/text_gula_darah" />
+
+                    <TextView
+                        android:id="@+id/text_elektrokardiogram"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38dp"
+                        android:text="@string/txt_elektrokardiogram"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_gula_darah" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_elektrokardiogram"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_waktu"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_elektrokardiogram"
+                        app:layout_constraintTop_toTopOf="@+id/text_elektrokardiogram" />
+
+                    <TextView
+                        android:id="@+id/text_angina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="38dp"
+                        android:text="@string/txt_angina"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_elektrokardiogram" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_angina"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_waktu"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_angina"
+                        app:layout_constraintTop_toTopOf="@+id/text_angina" />
+
+                    <TextView
+                        android:id="@+id/text_old_peak"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_old_peak"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_angina" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_old_peak"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_waktu"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_old_peak"
+                        app:layout_constraintTop_toTopOf="@+id/text_old_peak" />
+
+                    <TextView
+                        android:id="@+id/text_kemiringan_st"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_kemiringan_st"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_old_peak" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_kemiringan_st"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_waktu"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_kemiringan_st"
+                        app:layout_constraintTop_toTopOf="@+id/text_kemiringan_st" />
+
+                    <TextView
+                        android:id="@+id/text_max_hr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/txt_max_hr"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_detail_kemiringan_st" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_max_hr"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/fake_waktu"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/text_max_hr"
+                        app:layout_constraintTop_toTopOf="@+id/text_max_hr" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidelineVertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="64dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintGuide_begin="205dp"
+                        app:layout_constraintStart_toStartOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
 

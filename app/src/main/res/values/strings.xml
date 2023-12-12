@@ -61,9 +61,9 @@
     <string name="gula_darah_saat_puasa">Gulah Darah Saat Berpuasa</string>
     <string name="fake_gula_darah">0/1</string>
     <string name="submit">Submit</string>
-    <string name="txt_detail">Detail : </string>
+    <string name="txt_detail">Detail :</string>
     <string name="txt_name">Name : </string>
-    <string name="txt_tanggal">"Tanggal : "</string>
+    <string name="txt_tanggal">"Tanggal :"</string>
     <string name="saran_penanganan">Saran Penanganan</string>
     <string name="lokasi">LOKASI RS TERDEKAT</string>
     <string name="title_activity_maps">MapsActivity</string>
@@ -73,8 +73,23 @@
     <string name="hybrid_type">Hybrid</string>
     <string name="edit_profil">Edit Profile</string>
     <string name="fake_date">01/12/2023</string>
-    <string name="txt_waktu">Waktu : </string>
+    <string name="txt_waktu">Waktu :</string>
     <string name="fake_waktu">00:00 AM</string>
     <string name="identification_detail">Identification Detail</string>
     <string name="cari_lokasi_rs">Edit Profile</string>
+    <string name="male_gender">Laki-Laki</string>
+    <string name="txt_gender">"Jenis Kelamin :"</string>
+    <string name="txt_age">Umur :</string>
+    <string name="fake_age">25</string>
+    <string name="txt_nyeri_dada">"Jenis Nyeri Dada :"</string>
+    <string name="fake_asy">ASY</string>
+    <string name="txt_tekanan_darah">Tekanan Darah saat Istirahat :</string>
+    <string name="fake_tekanan_darah">120</string>
+    <string name="txt_kolesterol">"Kolesterol : "</string>
+    <string name="txt_gula_darah">Gula Darah saat Puasa :</string>
+    <string name="txt_elektrokardiogram">Elektrokardiogram saat Istirahat :</string>
+    <string name="txt_angina">Latihan Angina :</string>
+    <string name="txt_old_peak">Old Peak :</string>
+    <string name="txt_kemiringan_st">Kemiringan ST :</string>
+    <string name="txt_max_hr">Max HR :</string>
 </resources>
