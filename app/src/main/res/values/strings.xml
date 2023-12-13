@@ -85,12 +85,23 @@
     <string name="txt_nyeri_dada">"Jenis Nyeri Dada :"</string>
     <string name="fake_asy">ASY</string>
     <string name="txt_tekanan_darah">Tekanan Darah saat Istirahat :</string>
+    <string name="tekanan_darah">Tekanan Darah saat Istirahat</string>
     <string name="fake_tekanan_darah">120</string>
     <string name="txt_kolesterol">"Kolesterol : "</string>
     <string name="txt_gula_darah">Gula Darah saat Puasa :</string>
     <string name="txt_elektrokardiogram">Elektrokardiogram saat Istirahat :</string>
+    <string name="elektrokardiogram">Elektrokardiogram saat Istirahat</string>
     <string name="txt_angina">Latihan Angina :</string>
+    <string name="angina">Latihan Angina</string>
     <string name="txt_old_peak">Old Peak :</string>
+    <string name="old_peak">Old Peak</string>
     <string name="txt_kemiringan_st">Kemiringan ST :</string>
+    <string name="kemiringan_st">Kemiringan ST</string>
     <string name="txt_max_hr">Max HR :</string>
+    <string name="max_hr">Max HR</string>
+    <string name="date">Tanggal</string>
+    <string name="time">Waktu</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="nyeri_dada">Jenis Nyeri Dada</string>
+    <string name="umur">Umur</string>
 </resources>
