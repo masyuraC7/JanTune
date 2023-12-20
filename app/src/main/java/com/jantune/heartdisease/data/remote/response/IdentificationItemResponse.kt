@@ -7,29 +7,35 @@ data class IdentificationItemResponse(
     @field:SerializedName("date")
     val date: String? = null,
 
-    @field:SerializedName("oldPeak")
-    val oldPeak: Int? = null,
+    @field:SerializedName("restingECG")
+    val restingECG: Int? = null,
 
-    @field:SerializedName("restingEcg")
-    val restingEcg: String? = null,
+    @field:SerializedName("maxHR")
+    val maxHR: Int? = null,
 
-    @field:SerializedName("maxHr")
-    val maxHr: Int? = null,
+    @field:SerializedName("sex")
+    val sex: Int? = null,
 
-    @field:SerializedName("gender")
-    val gender: String? = null,
-
-    @field:SerializedName("fastingBs")
-    val fastingBs: Int? = null,
+    @field:SerializedName("fastingBS")
+    val fastingBS: Int? = null,
 
     @field:SerializedName("stSlope")
-    val stSlope: String? = null,
+    val stSlope: Int? = null,
+
+    @field:SerializedName("userId")
+    val userId: Int? = null,
 
     @field:SerializedName("exerciseAngina")
-    val exerciseAngina: String? = null,
+    val exerciseAngina: Int? = null,
 
-    @field:SerializedName("restingBp")
-    val restingBp: Int? = null,
+    @field:SerializedName("result")
+    val result: String? = null,
+
+    @field:SerializedName("oldpeak")
+    val oldpeak: Float? = null,
+
+    @field:SerializedName("restingBP")
+    val restingBP: Int? = null,
 
     @field:SerializedName("name")
     val name: String? = null,
@@ -47,5 +53,5 @@ data class IdentificationItemResponse(
     val age: Int? = null,
 
     @field:SerializedName("chestPainType")
-    val chestPainType: String? = null
+    val chestPainType: Int? = null
 )

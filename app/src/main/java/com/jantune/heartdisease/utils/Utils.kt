@@ -43,6 +43,4 @@ fun createCustomTempFile(context: Context): File {
 //    return file
 //}
 
-class Utils {
-
-}
+class Utils

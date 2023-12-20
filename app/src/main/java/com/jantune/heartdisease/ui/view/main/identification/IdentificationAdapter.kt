@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jantune.heartdisease.R
-import com.jantune.heartdisease.data.model.IdentificationHistory
+import com.jantune.heartdisease.data.remote.response.IdentificationItemResponse
 import com.jantune.heartdisease.databinding.ItemIdentificationBinding
 
 class IdentificationAdapter(
-    private val onItemClick: (IdentificationHistory) -> Unit,
-    private val onIvDelete: (name: String) -> Unit
-) : ListAdapter<IdentificationHistory, IdentificationAdapter.MyViewHolder>(DIFF_CALLBACK) {
+    private val onItemClick: (IdentificationItemResponse) -> Unit,
+    private val onIvDelete: (identificationId: Int) -> Unit
+) : ListAdapter<IdentificationItemResponse, IdentificationAdapter.MyViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding = ItemIdentificationBinding.inflate(
@@ -34,16 +34,16 @@ class IdentificationAdapter(
     class MyViewHolder(private val binding: ItemIdentificationBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(
-            identificationItem: IdentificationHistory,
-            onIvDelete: (name: String) -> Unit
+            identificationItem: IdentificationItemResponse,
+            onIvDelete: (identificationId: Int) -> Unit
         ) {
             val context = binding.root.context
 
             binding.historyName.text = identificationItem.name
-            binding.historyIdentification.text = identificationItem.identification
-            binding.historyDate.text = identificationItem.dateTime
+            binding.historyIdentification.text = identificationItem.result
+            binding.historyDate.text = identificationItem.date
 
-            if (identificationItem.identification == context.getString(R.string.negatif_result)) {
+            if (identificationItem.result == context.getString(R.string.negatif_result)) {
                 binding.historyIdentification.setTextColor(
                     ContextCompat.getColor(
                         context,
@@ -60,23 +60,23 @@ class IdentificationAdapter(
             }
 
             binding.ivDelete.setOnClickListener {
-                onIvDelete(identificationItem.name)
+                identificationItem.id?.let { it1 -> onIvDelete(it1) }
             }
         }
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<IdentificationHistory>() {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<IdentificationItemResponse>() {
             override fun areItemsTheSame(
-                oldItem: IdentificationHistory,
-                newItem: IdentificationHistory
+                oldItem: IdentificationItemResponse,
+                newItem: IdentificationItemResponse
             ): Boolean {
                 return oldItem == newItem
             }
 
             override fun areContentsTheSame(
-                oldItem: IdentificationHistory,
-                newItem: IdentificationHistory
+                oldItem: IdentificationItemResponse,
+                newItem: IdentificationItemResponse
             ): Boolean {
                 return oldItem == newItem
             }

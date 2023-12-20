@@ -21,6 +21,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BaseUrlIdentification", "\"https://api-jantune-a6enaj4tya-et.a.run.app/\"")
     }
 
     buildFeatures{

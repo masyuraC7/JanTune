@@ -2,9 +2,12 @@ package com.jantune.heartdisease.data.repository
 
 import androidx.lifecycle.LiveData
 import com.jantune.heartdisease.data.model.IdentificationHistory
+import com.jantune.heartdisease.data.remote.response.IdentificationItemResponse
 import com.jantune.heartdisease.utils.Result
 
-interface JantuneRepository{
+interface JantuneRepository {
+    fun getAllIdentificationById(userId: Int): LiveData<Result<List<IdentificationItemResponse>>>
+    fun deleteIdentificationById(userId: Int, identificationId: Int): LiveData<String>
     fun getActiveIdentification(): LiveData<Result<List<IdentificationHistory>>>
     fun updateIdentification(name: String): LiveData<Boolean>
 }

@@ -25,18 +25,18 @@ object AppModule {
 
     @Provides
     fun provideApiService(): ApiService {
-        val loggingInterceptor = if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-        } else {
-            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
-        }
+//        val loggingInterceptor = if (BuildConfig.DEBUG) {
+        val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+//        } else {
+//            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+//        }
 
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("soon")
+            .baseUrl(BuildConfig.BaseUrlIdentification)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -45,7 +45,7 @@ object AppModule {
     }
 
     @Provides
-    fun provideJantuneRepository(): JantuneRepository{
-        return JantuneRepositoryImpl()
+    fun provideJantuneRepository(apiService: ApiService): JantuneRepository {
+        return JantuneRepositoryImpl(apiService)
     }
 }

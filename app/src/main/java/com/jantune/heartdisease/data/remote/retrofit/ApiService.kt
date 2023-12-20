@@ -6,11 +6,19 @@ import retrofit2.http.DELETE
 import retrofit2.http.Field
 import retrofit2.http.GET
 import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.Path
 
 interface ApiService{
-    @GET("identification")
-    fun getAllIdentification(): IdentificationResponse
+    @GET("identification/{userId}")
+    suspend fun getAllIdentificationByUserId(
+        @Path("userId") userId: Int
+    ): IdentificationResponse
+
+    @DELETE("identification/{userId}/{identificationId}")
+    suspend fun deleteIdentificationById(
+        @Path("userId") userId: Int,
+        @Path("identificationId") identificationId: Int
+    ): IdentificationResponse
 
     @POST("identification")
     suspend fun createNewIdentification(
@@ -29,9 +37,4 @@ interface ApiService{
         @Field("age") age: Int? = null,
         @Field("chestPainType") chestPainType: String? = null
     ): FailResponse
-
-    @DELETE("identification")
-    fun deleteIdentificationById(
-        @Query("id") id: Int
-    ): IdentificationResponse
 }
