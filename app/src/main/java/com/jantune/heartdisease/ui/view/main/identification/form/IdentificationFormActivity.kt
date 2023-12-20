@@ -65,7 +65,7 @@ class IdentificationFormActivity : AppCompatActivity() {
             val intentToIdentificationDetailActivity =
                 Intent(this, IdentificationDetailActivity::class.java)
             intentToIdentificationDetailActivity.putExtra(
-                IdentificationDetailActivity.EXTRA_IDENTIFICATION,
+                IdentificationDetailActivity.EXTRA_ID,
                 "Positif Kardiovaskuler"
             )
             startActivity(intentToIdentificationDetailActivity)

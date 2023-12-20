@@ -14,6 +14,12 @@ interface ApiService{
         @Path("userId") userId: Int
     ): IdentificationResponse
 
+    @GET("identification/{userId}/{identificationId}")
+    suspend fun getIdentificationById(
+        @Path("userId") userId: Int,
+        @Path("identificationId") identificationId: Int
+    ): IdentificationResponse
+
     @DELETE("identification/{userId}/{identificationId}")
     suspend fun deleteIdentificationById(
         @Path("userId") userId: Int,

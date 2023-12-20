@@ -33,19 +33,40 @@ class JantuneRepositoryImpl @Inject constructor(
             }
         }
 
-    override fun deleteIdentificationById(userId: Int, identificationId: Int): LiveData<String> =
-        liveData {
-            val getUserId = 1
+    override fun getIdentificationById(
+        userId: Int,
+        identificationId: Int
+    ): LiveData<Result<IdentificationItemResponse>> = liveData {
+        emit(Result.Loading)
 
-            try {
-                val response = apiService.deleteIdentificationById(getUserId, identificationId)
-                val message = response.message.toString()
+        try {
+            val response = apiService.getAllIdentificationByUserId(userId)
+            val items = response.data?.first()
 
-                emit(message)
-            } catch (e: Exception) {
-                emit(e.message.toString())
-            }
+            if (items != null)
+                emit(Result.Success(items))
+            else
+                emit(Result.Empty)
+        } catch (e: Exception) {
+            emit(Result.Error(e.message.toString()))
         }
+    }
+
+    override fun deleteIdentificationById(
+        userId: Int,
+        identificationId: Int
+    ): LiveData<String> = liveData {
+        val getUserId = 1
+
+        try {
+            val response = apiService.deleteIdentificationById(getUserId, identificationId)
+            val message = response.message.toString()
+
+            emit(message)
+        } catch (e: Exception) {
+            emit(e.message.toString())
+        }
+    }
 
     override fun getActiveIdentification(): LiveData<Result<List<IdentificationHistory>>> =
         liveData {

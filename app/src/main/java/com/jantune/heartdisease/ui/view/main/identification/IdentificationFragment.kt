@@ -43,13 +43,17 @@ class IdentificationFragment : Fragment() {
                 val intentToIdentificationActivity =
                     Intent(requireActivity(), IdentificationDetailActivity::class.java)
                 intentToIdentificationActivity.putExtra(
-                    IdentificationDetailActivity.EXTRA_IDENTIFICATION,
-                    item.result
+                    IdentificationDetailActivity.EXTRA_USER_ID,
+                    item.userId
+                )
+                intentToIdentificationActivity.putExtra(
+                    IdentificationDetailActivity.EXTRA_ID,
+                    item.id
                 )
                 startActivity(intentToIdentificationActivity)
             },
             onIvDelete = {
-                viewModel.deleteIdentificationByID(userId = getUserId, identificationId = it)
+                viewModel.deleteIdentificationById(userId = getUserId, identificationId = it)
                 viewModel.getAllIdentificationByUserId(getUserId)
             }
         )

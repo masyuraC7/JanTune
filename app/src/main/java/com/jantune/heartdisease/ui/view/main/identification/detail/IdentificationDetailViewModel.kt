@@ -1,19 +1,16 @@
-package com.jantune.heartdisease.ui.view.main.identification
+package com.jantune.heartdisease.ui.view.main.identification.detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.jantune.heartdisease.data.model.IdentificationHistory
 import com.jantune.heartdisease.data.remote.response.IdentificationItemResponse
 import com.jantune.heartdisease.data.repository.JantuneRepository
 import com.jantune.heartdisease.utils.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
-import kotlin.coroutines.coroutineContext
 
 @HiltViewModel
-class IdentificationViewModel @Inject constructor(
+class IdentificationDetailViewModel @Inject constructor(
     private val repository: JantuneRepository
 ) : ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
@@ -22,15 +19,12 @@ class IdentificationViewModel @Inject constructor(
     private val _isError = MutableLiveData<String?>()
     val isError: LiveData<String?> = _isError
 
-    private val _isSuccessMessage = MutableLiveData<String?>()
-    val isSuccessMessage: LiveData<String?> = _isSuccessMessage
-
-    private val _isFilledIdentification = MutableLiveData<List<IdentificationItemResponse>?>()
-    val isFilledIdentification: LiveData<List<IdentificationItemResponse>?> =
+    private val _isFilledIdentification = MutableLiveData<IdentificationItemResponse?>()
+    val isFilledIdentification: LiveData<IdentificationItemResponse?> =
         _isFilledIdentification
 
-    fun getAllIdentificationByUserId(userId: Int) {
-        repository.getAllIdentificationById(userId).observeForever { result ->
+    fun getIdentificationById(userId: Int, identificationId: Int) {
+        repository.getIdentificationById(userId, identificationId).observeForever { result ->
             if (result != null) {
                 when (result) {
                     is Result.Loading -> {
@@ -55,12 +49,6 @@ class IdentificationViewModel @Inject constructor(
                     }
                 }
             }
-        }
-    }
-
-    fun deleteIdentificationById(userId: Int, identificationId: Int){
-        repository.deleteIdentificationById(userId, identificationId).observeForever {
-            _isSuccessMessage.value = it
         }
     }
 }

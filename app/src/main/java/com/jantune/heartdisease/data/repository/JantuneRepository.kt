@@ -7,6 +7,7 @@ import com.jantune.heartdisease.utils.Result
 
 interface JantuneRepository {
     fun getAllIdentificationById(userId: Int): LiveData<Result<List<IdentificationItemResponse>>>
+    fun getIdentificationById(userId: Int, identificationId: Int): LiveData<Result<IdentificationItemResponse>>
     fun deleteIdentificationById(userId: Int, identificationId: Int): LiveData<String>
     fun getActiveIdentification(): LiveData<Result<List<IdentificationHistory>>>
     fun updateIdentification(name: String): LiveData<Boolean>
