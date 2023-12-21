@@ -20,12 +20,11 @@ fun genderFormat(sex: Int): String {
 }
 
 fun stSlopeFormat(stSlope: Int): String {
-    return if (stSlope == 1)
-        "Down"
-    else if (stSlope == 2)
-        "Flat"
-    else
-        "Up"
+    return when (stSlope) {
+        1 -> "Down"
+        2 -> "Flat"
+        else -> "Up"
+    }
 }
 
 fun restingFCGFormat(restingFCG: Int): String {

@@ -1,7 +1,6 @@
 package com.jantune.heartdisease.utils
 
 import android.graphics.Typeface
-import android.text.SpannableString
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.StyleSpan

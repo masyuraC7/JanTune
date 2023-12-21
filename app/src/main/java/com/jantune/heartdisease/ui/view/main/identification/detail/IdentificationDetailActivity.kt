@@ -35,7 +35,6 @@ import com.jantune.heartdisease.utils.genderFormat
 import com.jantune.heartdisease.utils.restingFCGFormat
 import com.jantune.heartdisease.utils.stSlopeFormat
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.DelicateCoroutinesApi
 
 @AndroidEntryPoint
 class IdentificationDetailActivity : AppCompatActivity() {
