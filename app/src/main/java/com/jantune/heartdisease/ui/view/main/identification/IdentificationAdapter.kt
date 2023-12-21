@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.data.remote.response.IdentificationItemResponse
 import com.jantune.heartdisease.databinding.ItemIdentificationBinding
+import com.jantune.heartdisease.utils.DateFormatter
 
 class IdentificationAdapter(
     private val onItemClick: (IdentificationItemResponse) -> Unit,
@@ -41,7 +42,7 @@ class IdentificationAdapter(
 
             binding.historyName.text = identificationItem.name
             binding.historyIdentification.text = identificationItem.result
-            binding.historyDate.text = identificationItem.date
+            binding.historyDate.text = DateFormatter.formatDate(identificationItem.date.toString())
 
             if (identificationItem.result == context.getString(R.string.negatif_result)) {
                 binding.historyIdentification.setTextColor(
