@@ -1,10 +1,19 @@
 package com.jantune.heartdisease.data.remote.retrofit
 
+import com.jantune.heartdisease.data.model.UserModel
+import com.jantune.heartdisease.data.remote.response.ApiResponse
+
 import com.jantune.heartdisease.data.remote.response.FailResponse
 import com.jantune.heartdisease.data.remote.response.IdentificationResponse
+import com.jantune.heartdisease.data.remote.response.UserLoginRequest
+import com.jantune.heartdisease.data.remote.response.UserLoginResponse
+import com.jantune.heartdisease.data.remote.response.UserRegisterRequest
+import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.Field
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
 
@@ -25,6 +34,21 @@ interface ApiService{
         @Path("userId") userId: Int,
         @Path("identificationId") identificationId: Int
     ): IdentificationResponse
+
+    @POST("users")
+    suspend fun userRegister(@Body request: UserRegisterRequest): ApiResponse<UserModel>
+
+    @POST("users/login")
+    suspend fun userLogin(@Body request: UserLoginRequest): ApiResponse<UserLoginResponse>
+
+    @GET("users/{userId}")
+    suspend fun getUser(
+        @Path("userId") userId: Int,
+        @Header("Authorization") token: String
+    ): Response<List<UserModel>>
+
+    @GET("identification")
+    fun getAllIdentification(): IdentificationResponse
 
     @POST("identification")
     suspend fun createNewIdentification(

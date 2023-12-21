@@ -7,16 +7,23 @@ import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.FragmentRegisterBinding
+import com.jantune.heartdisease.ui.view.auth.AuthViewModel
+
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
+    private val viewModel: AuthViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +36,42 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
+            showLoading(it)
+        })
+
+        with(binding) {
+            btnRegister.setOnClickListener {
+                if ((edtEmailRegister.error != null) || (edtPassRegister.error != null) || (edtNameRegister.error != null)){
+                    showSnackbar(getString(R.string.error_login_correct))
+                } else if (edtEmailRegister.text.isNullOrEmpty() || edtPassRegister.text.isNullOrEmpty() || edtNameRegister.text.isNullOrEmpty()) {
+                    showSnackbar(getString(R.string.error_login_empty))
+                } else {
+                    val name = edtNameRegister.text.toString()
+                    val email = edtEmailRegister.text.toString()
+                    val password = edtPassRegister.text.toString()
+                    viewModel.userRegister(name, email, password)
+                }
+            }
+        }
+
+
+        viewModel.errorMsg.observe(viewLifecycleOwner, Observer {
+            if (it.isNotEmpty()) {
+                showSnackbar(it)
+            }
+        })
+
         setSpannableToLogin()
+    }
+
+    private fun showSnackbar(text: String) {
+        Snackbar.make(
+            binding.root,
+            text,
+            Snackbar.LENGTH_LONG
+        ).setAction("Close") {
+        }.show()
     }
 
     private fun setSpannableToLogin(){
@@ -55,5 +97,9 @@ class RegisterFragment : Fragment() {
         binding.tvToLogin.text = ss
         binding.tvToLogin.movementMethod = LinkMovementMethod.getInstance()
         binding.tvToLogin.highlightColor = Color.TRANSPARENT
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

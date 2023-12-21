@@ -3,8 +3,13 @@ package com.jantune.heartdisease.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.jantune.heartdisease.data.model.IdentificationHistory
+import com.jantune.heartdisease.data.model.UserModel
 import com.jantune.heartdisease.data.model.dummyIdentificationHistory
+import com.jantune.heartdisease.data.remote.response.ApiResponse
 import com.jantune.heartdisease.data.remote.response.IdentificationItemResponse
+import com.jantune.heartdisease.data.remote.response.UserLoginRequest
+import com.jantune.heartdisease.data.remote.response.UserLoginResponse
+import com.jantune.heartdisease.data.remote.response.UserRegisterRequest
 import com.jantune.heartdisease.data.remote.retrofit.ApiService
 import com.jantune.heartdisease.utils.Result
 import javax.inject.Inject
@@ -95,4 +100,32 @@ class JantuneRepositoryImpl @Inject constructor(
 
             emit(true)
         }
+
+    override suspend fun userRegister(name: String, email: String, password: String): Result<UserModel> {
+        return try {
+            val response = apiService.userRegister(UserRegisterRequest(name, email, password))
+
+            if (response.data != null) {
+                Result.Success(response.data)
+            } else {
+                Result.Error("Response data is null")
+            }
+        } catch (e: Exception) {
+            Result.Error(e.message.toString())
+        }
+    }
+    override suspend fun userLogin(email: String, password: String): Result<UserLoginResponse> {
+        return try {
+            val response = apiService.userLogin(UserLoginRequest(email, password))
+
+            if (response.data != null) {
+                Result.Success(response.data)
+            } else {
+                Result.Error("Response data is null")
+            }
+        } catch (e: Exception) {
+            Result.Error(e.message.toString())
+        }
+    }
+
 }

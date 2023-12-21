@@ -104,4 +104,13 @@
     <string name="gender">Jenis Kelamin</string>
     <string name="nyeri_dada">Jenis Nyeri Dada</string>
     <string name="umur">Umur</string>
+    <string name="failed_register">Register failed with error:</string>
+    <string name="failed_login">Login failed with error:</string>
+    <string name="wrong_authentication">Wrong email or password</string>
+    <string name="invalid_authentication">Invalid email address or address already registered before</string>
+    <string name="register_success_message">Successfully register new account</string>
+    <string name="register_failed">Register failed</string>
+    <string name="register_success">Register success</string>
+    <string name="login_failed">Login Failed</string>
+    <string name="ok">OK</string>
 </resources>
