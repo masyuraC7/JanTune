@@ -30,7 +30,6 @@ class GejalaAdapter : ListAdapter<Gejala, GejalaAdapter.MyViewHolder>(DIFF_CALLB
             binding.tvTitleGejala.text = gejala.title
             Glide.with(binding.root)
                 .load(gejala.image)
-                .circleCrop()
                 .into(binding.ivGejala)
                 .clearOnDetach()
         }

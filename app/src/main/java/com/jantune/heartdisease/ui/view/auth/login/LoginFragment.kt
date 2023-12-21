@@ -13,15 +13,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.findNavController
+import com.jantune.heartdisease.utils.Result
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.FragmentLoginBinding
+import com.jantune.heartdisease.ui.view.auth.AuthViewModel
 import com.jantune.heartdisease.ui.view.main.MainActivity
+import com.jantune.heartdisease.ui.view.main.identification.IdentificationViewModel
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private val viewModel: LoginViewModel by activityViewModels()
+    private val viewModel: AuthViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,18 +37,22 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            showLoading(it)
+        }
+
+
         setSpannableToRegister()
 
         with(binding) {
             btnLogin.setOnClickListener {
-//                if ((edtEmailLogin.error != null) || (edtPassLogin.error != null)) {
-//                    showSnackbar(getString(R.string.error_login_correct))
-//                } else if (edtEmailLogin.text.isNullOrEmpty() || edtPassLogin.text.isNullOrEmpty()) {
-//                    showSnackbar(getString(R.string.error_login_empty))
-//                } else {
-                    val intentToMainActivity = Intent(requireActivity(), MainActivity::class.java)
-                    startActivity(intentToMainActivity)
-//                }
+                if ((edtEmailLogin.error != null) || (edtPassLogin.error != null)) {
+                    showSnackbar(getString(R.string.error_login_correct))
+                } else if (edtEmailLogin.text.isNullOrEmpty() || edtPassLogin.text.isNullOrEmpty()) {
+                    showSnackbar(getString(R.string.error_login_empty))
+                } else {
+                    login()
+                }
             }
         }
     }
@@ -66,7 +73,7 @@ class LoginFragment : Fragment() {
 
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(view: View) {
-                view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+                findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
             }
 
             override fun updateDrawState(ds: TextPaint) {
@@ -75,6 +82,7 @@ class LoginFragment : Fragment() {
                 ds.isUnderlineText = false
             }
         }
+
         val startLinks = firstString.length - 4
         val endLinks = startLinks + extraString.length
         ss.setSpan(clickableSpan, startLinks, endLinks, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
@@ -82,5 +90,21 @@ class LoginFragment : Fragment() {
         binding.tvToRegister.text = ss
         binding.tvToRegister.movementMethod = LinkMovementMethod.getInstance()
         binding.tvToRegister.highlightColor = Color.TRANSPARENT
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun login() {
+        val email = binding.edtEmailLogin.text.toString()
+        val password = binding.edtPassLogin.text.toString()
+        viewModel.userLogin(email, password)
+    }
+
+    private fun startMainActivity() {
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
     }
 }

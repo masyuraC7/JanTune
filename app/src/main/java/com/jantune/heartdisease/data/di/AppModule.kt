@@ -5,6 +5,7 @@ import com.jantune.heartdisease.BuildConfig
 import com.jantune.heartdisease.data.remote.retrofit.ApiService
 import com.jantune.heartdisease.data.repository.JantuneRepository
 import com.jantune.heartdisease.data.repository.JantuneRepositoryImpl
+
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,11 +26,11 @@ object AppModule {
 
     @Provides
     fun provideApiService(): ApiService {
-//        val loggingInterceptor = if (BuildConfig.DEBUG) {
-        val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
-//        } else {
-//            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
-//        }
+        val loggingInterceptor = if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        } else {
+            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
+        }
 
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
@@ -48,4 +49,5 @@ object AppModule {
     fun provideJantuneRepository(apiService: ApiService): JantuneRepository {
         return JantuneRepositoryImpl(apiService)
     }
+
 }
