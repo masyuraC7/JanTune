@@ -26,7 +26,12 @@ class SplashScreenActivity : AppCompatActivity() {
         GlobalScope.launch {
             delay(2000)
 
-            val intentToAuthActivity = Intent(this@SplashScreenActivity, AuthActivity::class.java)
+            val intentToAuthActivity = Intent(
+                this@SplashScreenActivity,
+                AuthActivity::class.java
+            )
+            intentToAuthActivity.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intentToAuthActivity)
         }
     }

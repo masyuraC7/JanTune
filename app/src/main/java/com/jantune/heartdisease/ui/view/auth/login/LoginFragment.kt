@@ -13,14 +13,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.jantune.heartdisease.utils.Result
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.jantune.heartdisease.R
 import com.jantune.heartdisease.databinding.FragmentLoginBinding
 import com.jantune.heartdisease.ui.view.auth.AuthViewModel
 import com.jantune.heartdisease.ui.view.main.MainActivity
-import com.jantune.heartdisease.ui.view.main.identification.IdentificationViewModel
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -41,6 +44,9 @@ class LoginFragment : Fragment() {
             showLoading(it)
         }
 
+        viewModel.errorMsg.observe(viewLifecycleOwner) {
+            showSnackbar(it)
+        }
 
         setSpannableToRegister()
 
@@ -96,14 +102,22 @@ class LoginFragment : Fragment() {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun login() {
         val email = binding.edtEmailLogin.text.toString()
         val password = binding.edtPassLogin.text.toString()
         viewModel.userLogin(email, password)
+        GlobalScope.launch(Dispatchers.Main){
+            delay(2000)
+
+            startMainActivity()
+        }
     }
 
     private fun startMainActivity() {
         val intent = Intent(requireContext(), MainActivity::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         requireActivity().finish()
     }

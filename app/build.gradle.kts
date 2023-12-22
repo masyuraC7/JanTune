@@ -78,6 +78,10 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:$retrofit")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
+    // preferences
+    implementation("androidx.preference:preference-ktx:1.2.1")
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
     // view model
     val lifecycle = "2.6.2"
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle")

@@ -3,9 +3,7 @@ package com.jantune.heartdisease.data.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.jantune.heartdisease.data.model.IdentificationHistory
-import com.jantune.heartdisease.data.model.UserModel
 import com.jantune.heartdisease.data.model.dummyIdentificationHistory
-import com.jantune.heartdisease.data.remote.response.ApiResponse
 import com.jantune.heartdisease.data.remote.response.IdentificationItemResponse
 import com.jantune.heartdisease.data.remote.response.UserLoginRequest
 import com.jantune.heartdisease.data.remote.response.UserLoginResponse
@@ -101,31 +99,32 @@ class JantuneRepositoryImpl @Inject constructor(
             emit(true)
         }
 
-    override suspend fun userRegister(name: String, email: String, password: String): Result<UserModel> {
-        return try {
+    override suspend fun userRegister(
+        name: String,
+        email: String,
+        password: String
+    ): LiveData<String> = liveData {
+        try {
             val response = apiService.userRegister(UserRegisterRequest(name, email, password))
 
-            if (response.data != null) {
-                Result.Success(response.data)
-            } else {
-                Result.Error("Response data is null")
-            }
+            emit("Register gagal, akun sudah ada!")
         } catch (e: Exception) {
-            Result.Error(e.message.toString())
+            emit("Register Berhasil")
         }
     }
-    override suspend fun userLogin(email: String, password: String): Result<UserLoginResponse> {
-        return try {
+
+    override suspend fun userLogin(
+        email: String,
+        password: String
+    ): LiveData<Result<UserLoginResponse>> = liveData {
+        emit(Result.Loading)
+
+        try {
             val response = apiService.userLogin(UserLoginRequest(email, password))
 
-            if (response.data != null) {
-                Result.Success(response.data)
-            } else {
-                Result.Error("Response data is null")
-            }
+            emit(Result.Success(response))
         } catch (e: Exception) {
-            Result.Error(e.message.toString())
+            emit(Result.Error("Login gagal, email atau password anda salah!"))
         }
     }
-
 }

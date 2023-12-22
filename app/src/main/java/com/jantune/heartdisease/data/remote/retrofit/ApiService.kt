@@ -1,8 +1,6 @@
 package com.jantune.heartdisease.data.remote.retrofit
 
 import com.jantune.heartdisease.data.model.UserModel
-import com.jantune.heartdisease.data.remote.response.ApiResponse
-
 import com.jantune.heartdisease.data.remote.response.FailResponse
 import com.jantune.heartdisease.data.remote.response.IdentificationResponse
 import com.jantune.heartdisease.data.remote.response.UserLoginRequest
@@ -36,19 +34,16 @@ interface ApiService{
     ): IdentificationResponse
 
     @POST("users")
-    suspend fun userRegister(@Body request: UserRegisterRequest): ApiResponse<UserModel>
+    suspend fun userRegister(@Body request: UserRegisterRequest): Response<String>
 
     @POST("users/login")
-    suspend fun userLogin(@Body request: UserLoginRequest): ApiResponse<UserLoginResponse>
+    suspend fun userLogin(@Body request: UserLoginRequest): UserLoginResponse
 
     @GET("users/{userId}")
     suspend fun getUser(
         @Path("userId") userId: Int,
         @Header("Authorization") token: String
     ): Response<List<UserModel>>
-
-    @GET("identification")
-    fun getAllIdentification(): IdentificationResponse
 
     @POST("identification")
     suspend fun createNewIdentification(

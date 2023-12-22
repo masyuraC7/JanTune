@@ -12,8 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.jantune.heartdisease.R
@@ -36,33 +34,35 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
+        viewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
-        })
+        }
+
+        viewModel.errorMsg.observe(viewLifecycleOwner) {
+            showSnackbar(it)
+        }
 
         with(binding) {
             btnRegister.setOnClickListener {
-                if ((edtEmailRegister.error != null) || (edtPassRegister.error != null) || (edtNameRegister.error != null)){
+                if ((edtEmailRegister.error != null) || (edtPassRegister.error != null) || (edtNameRegister.error != null)) {
                     showSnackbar(getString(R.string.error_login_correct))
                 } else if (edtEmailRegister.text.isNullOrEmpty() || edtPassRegister.text.isNullOrEmpty() || edtNameRegister.text.isNullOrEmpty()) {
                     showSnackbar(getString(R.string.error_login_empty))
                 } else {
-                    val name = edtNameRegister.text.toString()
-                    val email = edtEmailRegister.text.toString()
-                    val password = edtPassRegister.text.toString()
-                    viewModel.userRegister(name, email, password)
+                    register()
                 }
             }
         }
 
-
-        viewModel.errorMsg.observe(viewLifecycleOwner, Observer {
-            if (it.isNotEmpty()) {
-                showSnackbar(it)
-            }
-        })
-
         setSpannableToLogin()
+    }
+
+    private fun register() {
+        val name = binding.edtNameRegister.text.toString()
+        val email = binding.edtEmailRegister.text.toString()
+        val password = binding.edtPassRegister.text.toString()
+
+        viewModel.userRegister(name, email, password)
     }
 
     private fun showSnackbar(text: String) {
@@ -74,7 +74,7 @@ class RegisterFragment : Fragment() {
         }.show()
     }
 
-    private fun setSpannableToLogin(){
+    private fun setSpannableToLogin() {
         val firstString = getString(R.string.txt_login_account)
         val extraString = getString(R.string.login_your_account)
         val ss = SpannableString(getString(R.string.txt_login_account, extraString))
